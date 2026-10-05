@@ -1,0 +1,2 @@
+# SMART-HOSPITAL-MANAGEMENT-SYSTEM
+Smart Hospital Management System is a web-based application that manages hospital activities digitally. It provides modules for patients, doctors, appointments, medical records, and hospital services. The system reduces paperwork, improves data management, saves time, and provides quick access to important healthcare information through a simple and user-friendly interface.
