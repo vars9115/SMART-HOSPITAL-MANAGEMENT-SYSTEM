@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>👨‍⚕️ Doctor Management</h1>
+</header>
+
+<nav>
+    <a href="/">Dashboard</a>
+    <a href="/patients">Patients</a>
+    <a href="/doctors">Doctors</a>
+    <a href="/appointments">Appointments</a>
+</nav>
+
+<div class="container">
+
+    <h2>Available Doctors</h2>
+
+    <div class="doctor-grid">
+
+        {% for doctor in doctors %}
+
+        <div class="doctor-card">
+
+            <h3>👨‍⚕️ {{ doctor.name }}</h3>
+
+            <p>
+                <strong>Specialization:</strong>
+                {{ doctor.specialization }}
+            </p>
+
+            <p class="available">Available</p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+</html>

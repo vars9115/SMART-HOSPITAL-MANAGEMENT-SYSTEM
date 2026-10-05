@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointments</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>📅 Appointment Management</h1>
+</header>
+
+<nav>
+    <a href="/">Dashboard</a>
+    <a href="/patients">Patients</a>
+    <a href="/doctors">Doctors</a>
+    <a href="/appointments">Appointments</a>
+</nav>
+
+<div class="container">
+
+    <h2>Book Appointment</h2>
+
+    <form action="/book_appointment" method="POST">
+
+        <input type="text"
+               name="patient"
+               placeholder="Patient Name"
+               required>
+
+        <select name="doctor" required>
+
+            <option value="">Select Doctor</option>
+
+            {% for doctor in doctors %}
+
+            <option value="{{ doctor.name }}">
+                {{ doctor.name }} - {{ doctor.specialization }}
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+        <input type="date" name="date" required>
+
+        <input type="time" name="time" required>
+
+        <input type="text"
+               name="reason"
+               placeholder="Reason for Visit"
+               required>
+
+        <button type="submit">
+            Book Appointment
+        </button>
+
+    </form>
+
+    <h2>Appointment List</h2>
+
+    <table>
+
+        <tr>
+            <th>Patient</th>
+            <th>Doctor</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Reason</th>
+        </tr>
+
+        {% for appointment in appointments %}
+
+        <tr>
+            <td>{{ appointment.patient }}</td>
+            <td>{{ appointment.doctor }}</td>
+            <td>{{ appointment.date }}</td>
+            <td>{{ appointment.time }}</td>
+            <td>{{ appointment.reason }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>
